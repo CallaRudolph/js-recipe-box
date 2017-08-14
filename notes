@@ -1,0 +1,11 @@
+<div *ngIf="selectedRecipe">
+  <h4>Ingredients:</h4>
+  <ul class *ngFor="let currentIngredient of currentRecipe.ingredients">
+    <li id="ingredient"><h5>{{currentIngredient}}</h5></li>
+  </ul>
+  <h4>INSTRUCTIONS:</h4>
+  <ul class *ngFor="let currentDirection of currentRecipe.directions">
+    <li id="direction"><h5>{{currentDirection}}</h5></li>
+  </ul>
+  <br>
+</div>
