@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
       <li (click)="viewRecipe(currentRecipe)"><div id="title"><h3>{{currentRecipe.title}}</h3></div></li>
     </ul>
     <br>
-    <div *ngIf="selectedRecipe">
+    <div *ngIf="selectedRecipe" (click)="finishedViewing()">
       <h4>Ingredients:</h4>
       <ul *ngFor="let currentIngredient of selectedRecipe.ingredients">
         <li id="ingredient"><h5>{{currentIngredient}}</h5></li>
@@ -34,6 +34,10 @@ export class AppComponent {
 
   viewRecipe(currentRecipe) {
     this.selectedRecipe = currentRecipe;
+  }
+
+  finishedViewing() {
+    this.selectedRecipe = null;
   }
 }
 
