@@ -10,8 +10,8 @@ import { Component } from '@angular/core';
       <li (click)="viewRecipe(currentRecipe)"><div id="title"><h3>{{currentRecipe.title}}</h3></div></li>
     </ul>
     <br>
-    <div *ngIf="selectedRecipe" (click)="finishedViewing()">
-      <h4>Ingredients:</h4>
+    <div *ngIf="selectedRecipe" >
+      <h4 (click)="finishedViewing()">Ingredients:</h4>
       <ul *ngFor="let currentIngredient of selectedRecipe.ingredients">
         <li id="ingredient"><h5>{{currentIngredient}}</h5></li>
       </ul>
@@ -20,6 +20,12 @@ import { Component } from '@angular/core';
         <li id="direction"><h5>{{currentDirection}}</h5></li>
       </ul>
       <br>
+      <label>Edit your recipe</label><br>
+      <input [(ngModel)]="selectedRecipe.title"><br>
+      <textarea [(ngModel)]="selectedRecipe.ingredients"></textarea><br>
+      <textarea [(ngModel)]="selectedRecipe.directions"></textarea><br>
+      <button (click)="editRecipe(selectedRecipe)">Edit</button>
+
     </div>
   </div>
   `
@@ -38,6 +44,10 @@ export class AppComponent {
 
   finishedViewing() {
     this.selectedRecipe = null;
+  }
+
+  editRecipe(clickedRecipe) {
+    this.selectedRecipe = clickedRecipe;
   }
 }
 
