@@ -48,6 +48,7 @@ export class AppComponent {
 
   editRecipe(clickedRecipe) {
     this.selectedRecipe = clickedRecipe;
+    this.selectedRecipe = null;
   }
 }
 
